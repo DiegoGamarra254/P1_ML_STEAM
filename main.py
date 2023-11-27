@@ -20,9 +20,9 @@ def read_root():
 
 
 # Endpoint para PlayTimeGenre
-@app.get("/playtime/{genero}")
-def read_playtime(genro: str):
-    result = PlayTimeGenre(genro)
+@app.get("/PlayTimeGenre/{genero}")
+async def read_playtime(genero: str):
+    result = PlayTimeGenre(genero)
     return result
 
 # Endpoint para UserForGenre
@@ -50,7 +50,7 @@ def read_sentiment(developer: str):
     return result
 
 # Endpoint para recomendacion_juego
-@app.get("/recomendacionjuego/{id}")
+@app.get("/recomendacion_juego/{id}")
 def read_recomendacion_juego(id: int):
     result = recomendacion_juego(id)
     return result
