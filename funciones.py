@@ -46,6 +46,7 @@ def PlayTimeGenre(genero):
         return {"No hay datos disponibles para el género especificado"}
 
     max_year = genre_data.loc[genre_data['total_playtime'].idxmax(), 'year']
+    max_year=int(max_year)
 
     out = {"Año de lanzamiento con más horas jugadas para {}:".format(genero): max_year}
     return out
