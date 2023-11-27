@@ -10,7 +10,7 @@ import pickle
 
 
 #funcion1
-def PlayTimeGenre(genero):
+'''def PlayTimeGenre(genero):
     playtimegenre4=pd.read_parquet('playtimegenre4.parquet')
     # Convertir el género ingresado a minúsculas
     genero_lower = genero.lower()
@@ -25,6 +25,28 @@ def PlayTimeGenre(genero):
     # Encontrar el año con el mayor tiempo total de juego
     max_year = genre_data.loc[genre_data['total_playtime'].idxmax(), 'year']
     
+    out = {"Año de lanzamiento con más horas jugadas para {}:".format(genero): max_year}
+    return out'''
+def PlayTimeGenre(genero):
+    playtimegenre4 = pd.read_parquet('playtimegenre4.parquet')
+    genero_lower = genero.lower()
+
+    if genero_lower not in playtimegenre4['genres'].str.lower().unique():
+        return {"Género no pertenece al conjunto de datos"}
+
+    genre_data = playtimegenre4[playtimegenre4['genres'].str.lower() == genero_lower]
+
+    # Convertir la columna 'total_playtime' a tipo de dato numérico si no lo es
+    genre_data['total_playtime'] = pd.to_numeric(genre_data['total_playtime'], errors='coerce')
+
+    # Eliminar filas con valores NaN en 'total_playtime'
+    genre_data = genre_data.dropna(subset=['total_playtime'])
+
+    if genre_data.empty:
+        return {"No hay datos disponibles para el género especificado"}
+
+    max_year = genre_data.loc[genre_data['total_playtime'].idxmax(), 'year']
+
     out = {"Año de lanzamiento con más horas jugadas para {}:".format(genero): max_year}
     return out
 
