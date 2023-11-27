@@ -130,6 +130,16 @@ def recomendacion_juego(id):
     df_recommendation=pd.read_parquet('recommendation.parquet')
     # Verifica si el id esta en el dataFrame
     if id in df_recommendation['id'].values:
+        #Asignamos la columna 'Genres' a una variable para luego tratarla y limpiar caracteres
+        genres_variable = df_recommendation['recommendations'].copy()
+        #Convertimos a cadena antes de reemplazar los corchetes que queremos sacar
+        genres_variable = genres_variable.apply(lambda x: str(x).replace('[', '').replace(']', ''))
+        #Eliminamos las comillas y agregamos comas entre los géneros para separalos
+        genres_variable = genres_variable.apply(lambda x: ', '.join(filter(None, map(str.strip, x.split("'")))) if isinstance(x, str) else x)
+        #Reemplazamos la columna 'Genres' en el DataFrame original con la nueva columna tratada
+        df_recommendation['recommendations'] = genres_variable
+        #Imprimimos para ver como quedo la columna después de reemplazar
+   
         # recoge las recomendaciones
         recommendations_list = df_recommendation.loc[df_recommendation['id'] == id, 'recommendations'].tolist()[0]
         return recommendations_list
