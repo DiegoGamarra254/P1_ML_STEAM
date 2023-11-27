@@ -142,7 +142,7 @@ def recomendacion_juego(id):
    
         # recoge las recomendaciones
         recommendations_list = df_recommendation.loc[df_recommendation['id'] == id, 'recommendations'].tolist()[0]
-        return recommendations_list
+        return list(recommendations_list)
     else:
         # si el id no esta presente muestra el siguiente mensaje
         return f"No se encontraron recomendaciones para ID {id}"
