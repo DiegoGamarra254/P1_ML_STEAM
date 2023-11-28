@@ -37,10 +37,10 @@ def PlayTimeGenre(genero):
     genre_data = playtimegenre4[playtimegenre4['genres'].str.lower() == genero_lower]
 
     # Convertir la columna 'total_playtime' a tipo de dato numérico si no lo es
-    genre_data['total_playtime'] = pd.to_numeric(genre_data['total_playtime'], errors='coerce')
+    #genre_data['total_playtime'] = pd.to_numeric(genre_data['total_playtime'], errors='coerce')
 
     # Eliminar filas con valores NaN en 'total_playtime'
-    genre_data = genre_data.dropna(subset=['total_playtime'])
+    #genre_data = genre_data.dropna(subset=['total_playtime'])
 
     if genre_data.empty:
         return {"No hay datos disponibles para el género especificado"}
@@ -48,7 +48,7 @@ def PlayTimeGenre(genero):
     max_year = genre_data.loc[genre_data['total_playtime'].idxmax(), 'year']
     max_year=int(max_year)
 
-    out = {"Año de lanzamiento con más horas jugadas para {}:".format(genero): max_year}
+    out = {"Año de lanzamiento con más horas jugadas para genero {}".format(genero): max_year}
     return out
 
 #funcion2
@@ -126,7 +126,7 @@ def sentiment_analysis(developer):
     return result_dict
 
 #funcion6
-def recomendacion_juego(id):
+'''def recomendacion_juego(id):
     df_recommendation=pd.read_parquet('recommendation.parquet')
     # Verifica si el id esta en el dataFrame
     if id in df_recommendation['id'].values:
@@ -145,4 +145,20 @@ def recomendacion_juego(id):
         return list(recommendations_list)
     else:
         # si el id no esta presente muestra el siguiente mensaje
+        return f"No se encontraron recomendaciones para ID {id}" '''
+    
+def recomendacion_juego(id):
+    df_recommendation = pd.read_parquet('recommendation.parquet')
+    
+    # Verifica si el id está en el DataFrame
+    if id in df_recommendation['id'].values:
+        # Recoge las recomendaciones como una cadena
+        recommendations_array = df_recommendation.loc[df_recommendation['id'] == id, 'recommendations'].iloc[0]
+
+        # Convierte el array de NumPy a una lista de Python
+        recommendations_list = list(np.asarray(recommendations_array))
+
+        return recommendations_list
+    else:
+        # Si el id no está presente, muestra el siguiente mensaje
         return f"No se encontraron recomendaciones para ID {id}"
