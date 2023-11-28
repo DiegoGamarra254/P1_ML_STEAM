@@ -38,9 +38,9 @@ El resto de archivos son los requerimientos para el deploy, los archivos main y 
 <br />
 
 ## Enlaces <br />
-- Enlace al video explicativo 
-- Enlace a la API  https://ml-steam-api.onrender.com
-- Enlace a la API/docs https://ml-steam-api.onrender.com/docs
+- Enlace al video explicativo https://youtu.be/gp2Y1vgQoiM
+- Enlace a la API/docs (Considerar que el servidor toma algun tiempo en incializar)  https://ml-steam-api.onrender.com/docs  
+- Enlace a la API  https://ml-steam-api.onrender.com 
 - Enlace a los dataset originales:
  - https://drive.google.com/drive/folders/1HqBG2-sUkz_R3h1dZU5F2uAzpRn7BSpj
  - https://drive.google.com/file/d/1GPf0wEV1MNreATjIu4DqEqysgua7XzSs/view?usp=drive_link
