@@ -3,6 +3,7 @@ import fastapi
 from fastapi import FastAPI
 import pyarrow.parquet as pq
 import pickle
+import numpy as np
 
 
 
