@@ -12,7 +12,7 @@ Obtención de un Producto Mínimo Viable (MVP) que consista en el despliegue del
 ## Desarrollo <br />
 
 
-### Ingeniería de Datos (ETL y EDA)** <br />
+### Ingeniería de Datos (ETL y EDA) <br />
 Los datasets iniciales se recibieron en un formaton JSON anidado de un repositorio público se realizó la carga y exploración de los datos, revisión de datos anómalos, eliminación de duplicados, revisión de valores nulos  y vacios, revisión de tipo de datos, reemplazo de valores nulos y vacios en las columnas requeridas para las funciones, aprovechando la data limpia se realizó la busqueda de patrones e información sobre las relaciones de los datos para tener un panorama más claro al momento de hacer las recomendaciones para esto utilizamos gráficas y funciones estadísticas.<br />  
 ### Feature Engineering:
 Se implementó la columna ` sent_an ` aplicando análisis de sentimiento a las reseñas de los usuarios aplicando las librerias NLTK y Vader_Lexicon <br />
