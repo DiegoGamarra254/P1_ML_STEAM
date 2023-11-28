@@ -11,23 +11,6 @@ import numpy as np
 
 
 #funcion1
-'''def PlayTimeGenre(genero):
-    playtimegenre4=pd.read_parquet('playtimegenre4.parquet')
-    # Convertir el género ingresado a minúsculas
-    genero_lower = genero.lower()
-
-    # Convertir los géneros en el conjunto de datos a minúsculas y verificar la pertenencia
-    if genero_lower not in playtimegenre4['genres'].str.lower().unique():
-        return {"Género no pertenece al conjunto de datos"}
-
-    # Filtrar el DataFrame para el género especificado
-    genre_data = playtimegenre4[playtimegenre4['genres'].str.lower() == genero_lower]
-
-    # Encontrar el año con el mayor tiempo total de juego
-    max_year = genre_data.loc[genre_data['total_playtime'].idxmax(), 'year']
-    
-    out = {"Año de lanzamiento con más horas jugadas para {}:".format(genero): max_year}
-    return out'''
 def PlayTimeGenre(genero):
     playtimegenre4 = pd.read_parquet('playtimegenre4.parquet')
     genero_lower = genero.lower()
@@ -36,12 +19,6 @@ def PlayTimeGenre(genero):
         return {"Género no pertenece al conjunto de datos"}
 
     genre_data = playtimegenre4[playtimegenre4['genres'].str.lower() == genero_lower]
-
-    # Convertir la columna 'total_playtime' a tipo de dato numérico si no lo es
-    #genre_data['total_playtime'] = pd.to_numeric(genre_data['total_playtime'], errors='coerce')
-
-    # Eliminar filas con valores NaN en 'total_playtime'
-    #genre_data = genre_data.dropna(subset=['total_playtime'])
 
     if genre_data.empty:
         return {"No hay datos disponibles para el género especificado"}
@@ -126,28 +103,7 @@ def sentiment_analysis(developer):
 
     return result_dict
 
-#funcion6
-'''def recomendacion_juego(id):
-    df_recommendation=pd.read_parquet('recommendation.parquet')
-    # Verifica si el id esta en el dataFrame
-    if id in df_recommendation['id'].values:
-        #Asignamos la columna 'Genres' a una variable para luego tratarla y limpiar caracteres
-        genres_variable = df_recommendation['recommendations'].copy()
-        #Convertimos a cadena antes de reemplazar los corchetes que queremos sacar
-        genres_variable = genres_variable.apply(lambda x: str(x).replace('[', '').replace(']', ''))
-        #Eliminamos las comillas y agregamos comas entre los géneros para separalos
-        genres_variable = genres_variable.apply(lambda x: ', '.join(filter(None, map(str.strip, x.split("'")))) if isinstance(x, str) else x)
-        #Reemplazamos la columna 'Genres' en el DataFrame original con la nueva columna tratada
-        df_recommendation['recommendations'] = genres_variable
-        #Imprimimos para ver como quedo la columna después de reemplazar
-   
-        # recoge las recomendaciones
-        recommendations_list = df_recommendation.loc[df_recommendation['id'] == id, 'recommendations'].tolist()[0]
-        return list(recommendations_list)
-    else:
-        # si el id no esta presente muestra el siguiente mensaje
-        return f"No se encontraron recomendaciones para ID {id}" '''
-    
+#funcion6  
 def recomendacion_juego(id):
     df_recommendation = pd.read_parquet('recommendation.parquet')
     
@@ -156,7 +112,7 @@ def recomendacion_juego(id):
         # Recoge las recomendaciones como una cadena
         recommendations_array = df_recommendation.loc[df_recommendation['id'] == id, 'recommendations'].iloc[0]
 
-        # Convierte el array de NumPy a una lista de Python
+        # Se observo que el resultado es un array asi que convertimos el array de NumPy a una lista de Python
         recommendations_list = list(np.asarray(recommendations_array))
 
         return recommendations_list
