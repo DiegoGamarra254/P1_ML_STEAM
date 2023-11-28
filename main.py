@@ -17,23 +17,39 @@ app = FastAPI()
 @app.get("/", response_class=HTMLResponse)
 async def read_root():
     html_content = """
-    <!DOCTYPE html>
-    <html>
-    <head>
-        <title>FastAPI Example</title>
-    </head>
-    <body>
-        <h1>BIENVENIDOS A LA API DEL PROYECTO 1, Realizado por Diego Gamarra Rivera</h1>
-        <ul>
-            <li><a href="/PlayTimeGenre/Accion">Consulta PlayTimeGenre para el género Acción</a></li>
-            <li><a href="/userforgenre/Accion">Consulta UserForGenre para el género Acción</a></li>
-            <li><a href="/usersrecommend/2023">Consulta UsersRecommend para el año 2023</a></li>
-            <li><a href="/usersworstdeveloper/2023">Consulta UsersWorstDeveloper para el año 2023</a></li>
-            <li><a href="/sentiment/EA">Consulta Sentiment Analysis para el desarrollador EA</a></li>
-            <li><a href="/recomendacion_juego/123">Consulta Recomendacion Juego para el ID 123</a></li>
-        </ul>
-    </body>
-    </html>
+   <!DOCTYPE html>
+<html>
+<head>
+    <title>FastAPI Example</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif; /* Cambia 'Arial' por la fuente que desees */
+        }
+
+        h1 {
+            /* Estilos para el título principal si es necesario */
+        }
+
+        h2 {
+            font-family: 'Helvetica', sans-serif; /* Cambia 'Helvetica' por la fuente que desees para el subtítulo */
+            color: #333; /* Cambia el color del subtítulo si es necesario */
+        }
+    </style>
+</head>
+<body>
+    <h1>BIENVENIDOS A LA API DEL PROYECTO 1</h1>
+    <h2>Realizado por Diego Gamarra Rivera DataFT17</h2>
+    <ul>
+        <li><a href="/PlayTimeGenre/Accion">Consulta PlayTimeGenre para el género Action</a></li>
+        <li><a href="/userforgenre/Accion">Consulta UserForGenre para el género Action</a></li>
+        <li><a href="/usersrecommend/2023">Consulta UsersRecommend para el año 2023</a></li>
+        <li><a href="/usersworstdeveloper/2023">Consulta UsersWorstDeveloper para el año 2023</a></li>
+        <li><a href="/sentiment/EA">Consulta Sentiment Analysis para el desarrollador Valve</a></li>
+        <li><a href="/recomendacion_juego/123">Consulta Recomendacion Juego para el ID 50</a></li>
+    </ul>
+</body>
+</html>
+
     """
     return HTMLResponse(content=html_content)
 
