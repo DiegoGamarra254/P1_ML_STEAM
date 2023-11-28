@@ -38,104 +38,37 @@ async def read_root():
     return HTMLResponse(content=html_content)
 
 # Endpoint para PlayTimeGenre
-@app.get("/PlayTimeGenre/{genero}", response_class=HTMLResponse)
+@app.get("/PlayTimeGenre/{genero}")
 async def user(genero: str):
-    html_content = f"""
-    <!DOCTYPE html>
-    <html>
-    <head>
-        <title>PlayTimeGenre Result</title>
-    </head>
-    <body>
-        <h1>PlayTimeGenre Result</h1>
-        <p>Consulta para el género: {genero}</p>
-        <!-- Agrega más contenido según sea necesario -->
-    </body>
-    </html>
-    """
-    return HTMLResponse(content=html_content)
+    result = PlayTimeGenre(genero)
+    return result
 
 # Endpoint para UserForGenre
-@app.get("/userforgenre/{genero}", response_class=HTMLResponse)
+@app.get("/userforgenre/{genero}")
 def read_user_for_genre(genero: str):
-    html_content = f"""
-    <!DOCTYPE html>
-    <html>
-    <head>
-        <title>UserForGenre Result</title>
-    </head>
-    <body>
-        <h1>UserForGenre Result</h1>
-        <p>Consulta para el género: {genero}</p>
-        <!-- Agrega más contenido según sea necesario -->
-    </body>
-    </html>
-    """
-    return HTMLResponse(content=html_content)
+    result = UserForGenre(genero)
+    return result
 
 # Endpoint para UsersRecommend
-@app.get("/usersrecommend/{year}", response_class=HTMLResponse)
+@app.get("/usersrecommend/{year}")
 def read_users_recommend(year: int):
-    html_content = f"""
-    <!DOCTYPE html>
-    <html>
-    <head>
-        <title>UsersRecommend Result</title>
-    </head>
-    <body>
-        <h1>UsersRecommend Result</h1>
-        <p>Consulta para el año: {year}</p>
-        <!-- Agrega más contenido según sea necesario -->
-    </body>
-    </html>
-    """
-    return HTMLResponse(content=html_content)
+    result = UsersRecommend(year)
+    return result
 
 # Endpoint para UsersWorstDeveloper
-@app.get("/usersworstdeveloper/{year}", response_class=HTMLResponse)
+@app.get("/usersworstdeveloper/{year}")
 def read_users_worst_developer(year: int):
-    html_content = f"""
-    <!DOCTYPE html>
-    <html>
-    <head>
-        <title>UsersWorstDeveloper Result</title>
-    </head>
-    <body>
-        <h1>UsersWorstDeveloper Result</h1>
-        <p>Consulta para el año: {year}</p>
-        <!-- Agrega más contenido según sea necesario -->
-    </body>
-    </html>
-    """
-    return HTMLResponse(content=html_content)
+    result = UsersWorstDeveloper(year)
+    return result
 
 # Endpoint para sentiment_analysis
-@app.get("/sentiment/{developer}", response_class=HTMLResponse)
+@app.get("/sentiment/{developer}")
 def read_sentiment(developer: str):
-    html_content = f"""
-    <!DOCTYPE html>
-    <html>
-    <head>
-        <title>Sentiment Analysis Result</title>
-    </head>
-    <body>
-        <h1>Sentiment Analysis Result</h1>
-        <p>Consulta para el desarrollador: {developer}</p>
-        <!-- Agrega más contenido según sea necesario -->
-    </body>
-    </html>
-    """
-    return HTMLResponse(content=html_content)
+    result = sentiment_analysis(developer)
+    return result
 
 # Endpoint para recomendacion_juego
-@app.get("/recomendacion_juego/{id}", response_class=HTMLResponse)
+@app.get("/recomendacion_juego/{id}")
 def user(id: int):
-    html_content = f"""
-    <!DOCTYPE html>
-    <html>
-    <head>
-        <title>Recomendacion Juego Result</title>
-    </head>
-    <body>
-        <h1>Recomendacion Juego Result</h1>
-        <p>Consulta para el ID
+    result = recomendacion_juego(id)
+    return result
