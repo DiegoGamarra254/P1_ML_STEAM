@@ -42,8 +42,8 @@ async def read_root():
     <ul>
         <li><a href="/PlayTimeGenre/Action">Consulta PlayTimeGenre para el género Action</a></li>
         <li><a href="/userforgenre/Action">Consulta UserForGenre para el género Action</a></li>
-        <li><a href="/usersrecommend/2016">Consulta UsersRecommend para el año 2023</a></li>
-        <li><a href="/usersworstdeveloper/2016">Consulta UsersWorstDeveloper para el año 2023</a></li>
+        <li><a href="/usersrecommend/2012">Consulta UsersRecommend para el año 2012</a></li>
+        <li><a href="/usersworstdeveloper/2012">Consulta UsersWorstDeveloper para el año 2012</a></li>
         <li><a href="/sentiment/Valve">Consulta Sentiment Analysis para el desarrollador Valve</a></li>
         <li><a href="/recomendacion_juego/50">Consulta Recomendacion Juego para el ID 50</a></li>
     </ul>
