@@ -32,7 +32,7 @@ async def read_root():
 
         h2 {
             font-family: 'Helvetica', sans-serif; /* Cambia 'Helvetica' por la fuente que desees para el subtítulo */
-            color: #333; /* Cambia el color del subtítulo si es necesario */
+            color: #000080; /* Cambia el color del subtítulo si es necesario */
         }
     </style>
 </head>
@@ -40,12 +40,12 @@ async def read_root():
     <h1>BIENVENIDOS A LA API DEL PROYECTO 1</h1>
     <h2>Realizado por Diego Gamarra Rivera DataFT17</h2>
     <ul>
-        <li><a href="/PlayTimeGenre/Accion">Consulta PlayTimeGenre para el género Action</a></li>
-        <li><a href="/userforgenre/Accion">Consulta UserForGenre para el género Action</a></li>
-        <li><a href="/usersrecommend/2023">Consulta UsersRecommend para el año 2023</a></li>
-        <li><a href="/usersworstdeveloper/2023">Consulta UsersWorstDeveloper para el año 2023</a></li>
-        <li><a href="/sentiment/EA">Consulta Sentiment Analysis para el desarrollador Valve</a></li>
-        <li><a href="/recomendacion_juego/123">Consulta Recomendacion Juego para el ID 50</a></li>
+        <li><a href="/PlayTimeGenre/Action">Consulta PlayTimeGenre para el género Action</a></li>
+        <li><a href="/userforgenre/Action">Consulta UserForGenre para el género Action</a></li>
+        <li><a href="/usersrecommend/2016">Consulta UsersRecommend para el año 2023</a></li>
+        <li><a href="/usersworstdeveloper/2016">Consulta UsersWorstDeveloper para el año 2023</a></li>
+        <li><a href="/sentiment/Valve">Consulta Sentiment Analysis para el desarrollador Valve</a></li>
+        <li><a href="/recomendacion_juego/50">Consulta Recomendacion Juego para el ID 50</a></li>
     </ul>
 </body>
 </html>
